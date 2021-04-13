@@ -44,6 +44,7 @@ const Card = (props) => {
     <>
       <StyledBox
         onClick={handelModel}
+        id="card"
         background="white"
         borderWidth="1px"
         borderRadius="lg"
@@ -70,6 +71,7 @@ const Card = (props) => {
       </StyledBox>
       <Modal
         size="xl"
+        id="modal"
         closeOnOverlayClick={false}
         isOpen={isOpen}
         onClose={onClose}

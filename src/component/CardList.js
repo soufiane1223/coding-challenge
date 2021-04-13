@@ -7,7 +7,7 @@ const cardList = ({ pokemons }) => {
   return (
     <Container maxW="container.xl">
 <SimpleGrid columns={[1, null, 3]} spacing="40px">
-        {pokemons.map((pokemon) => (
+        {pokemons?.map((pokemon) => (
             <Card key={pokemon.name} pokemon={pokemon}></Card>
         ))}
       </SimpleGrid>
