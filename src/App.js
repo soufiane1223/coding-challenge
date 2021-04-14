@@ -5,7 +5,6 @@ import InfiniteScroll from "react-infinite-scroller";
 import { Center, Container } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 
-
 const App = () => {
   const [pokemons, setpokemons] = useState([]);
   const [url, seturl] = useState("https://pokeapi.co/api/v2/pokemon?limit=10");
@@ -17,6 +16,7 @@ const App = () => {
     });
     return ref.current;
   };
+
   const prevPokemons = usePrevious(pokemons);
 
   const loadPokemon = () => {
@@ -31,22 +31,27 @@ const App = () => {
         console.log(error);
       });
   };
+
   return (
-    <Container id="container" maxW="container.xl" >
+    <Container id="container" maxW="container.xl" p="25">
       {pokemons ? (
         <InfiniteScroll
           pageStart={0}
           loadMore={loadPokemon}
           hasMore={url}
           loader={
-          <Center> <Spinner className="spinner" size="xl" /></Center> 
+            <Center>
+              <Spinner className="spinner" size="xl" />
+            </Center>
           }
         >
           <CardList pokemons={pokemons} />
         </InfiniteScroll>
       ) : (
-        <Center> <Spinner size="xl" /></Center> 
-        )}
+        <Center>
+          <Spinner size="xl" />
+        </Center>
+      )}
     </Container>
   );
 };
